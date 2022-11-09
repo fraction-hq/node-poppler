@@ -76,13 +76,18 @@ class Poppler {
 	constructor(binPath) {
 		if (binPath) {
 			this.popplerPath = path.normalizeTrim(binPath);
-		} else if (process.platform === "win32") {
+		} else if (process.platform === "darwin") {
 			this.popplerPath = path.joinSafe(
 				__dirname,
 				"lib",
-				"win32",
-				"poppler-22.04.0",
-				"Library",
+				"darwin",
+				"bin"
+			);
+		}  else if (process.platform === "linux") {
+			this.popplerPath = path.joinSafe(
+				__dirname,
+				"lib",
+				"linux",
 				"bin"
 			);
 		} else {
