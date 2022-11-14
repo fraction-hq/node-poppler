@@ -76,20 +76,6 @@ class Poppler {
 	constructor(binPath) {
 		if (binPath) {
 			this.popplerPath = path.normalizeTrim(binPath);
-		} else if (process.platform === "darwin") {
-			this.popplerPath = path.joinSafe(
-				__dirname,
-				"lib",
-				"darwin",
-				"bin"
-			);
-		}  else if (process.platform === "linux") {
-			this.popplerPath = path.joinSafe(
-				__dirname,
-				"lib",
-				"linux",
-				"bin"
-			);
 		} else {
 			throw new Error(
 				`${process.platform} poppler-util binaries are not provided, please pass the installation directory as a parameter to the Poppler instance.`
